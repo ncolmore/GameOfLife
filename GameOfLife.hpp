@@ -43,7 +43,7 @@ public:
         if (theSociety.at(row).at(col) == true) {
             return true;
         }
-        return !true;
+        return false;
     }
 
     // Returns the colony as one big string
@@ -132,22 +132,25 @@ public:
 
     // Change the state to the next society of cells
     void update() {
+        vector<vector<bool>> tempSociety=theSociety;
         for(int i=0;i<theSociety.size();i++){
             for(int j=0;j<theSociety.at(i).size();j++){
-                if(neighborCount(i,j)==3 && cellAt(i,j)==true){
-                    growCellAt(i,j);
+                if(neighborCount(i,j)==3 && !cellAt(i, j)){
+                    //growCellAt(i,j);
+                    tempSociety.at(i).at(j)=true;
                 }
-                else if((neighborCount(i,j)==2 || neighborCount(i,j)==3) && cellAt(i,j)==true){
+                else if((neighborCount(i,j)==2 || neighborCount(i,j)==3) && cellAt(i, j)){
                     //do nothing
                 }
-                else if(neighborCount(i,j)<2 && cellAt(i,j)==true){
-                    theSociety.at(i).at(j)==false;
+                else if(neighborCount(i,j)<2 && cellAt(i, j)){
+                    tempSociety.at(i).at(j)=false;
                 }
                 else if(neighborCount(i,j)>3){
-                    theSociety.at(i).at(j)==false;
+                    tempSociety.at(i).at(j)=false;
                 }
             }
         }
+        theSociety=tempSociety;
     }
 
 };
