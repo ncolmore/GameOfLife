@@ -3,4 +3,4 @@ project(GameOfLife)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(GameOfLife GameOfLife.hpp catch-main.cpp mainTest.cpp mainTest.h)
+add_executable(GameOfLife GameOfLife.hpp catch-main.cpp GameOfLifeTest.cpp)
