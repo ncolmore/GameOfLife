@@ -34,7 +34,7 @@ public:
 
     // Grow a cell at the given location
     void growCellAt(unsigned long row, unsigned long col) {
-        theSociety.at(row).at(col) == true;
+        theSociety.at(row).at(col) = true;
     }
 
     // Check to see if a cell is at the given location
@@ -51,7 +51,7 @@ public:
         string colony;
         for (int i = 0; i < theSociety.size(); i++) {
             for (int j = 0; j < theSociety.at(i).size(); j++) {
-                if (theSociety.at(i).at(j) == true) {
+                if (theSociety.at(i).at(j) == 1) {
                     colony.push_back('O');
                 } else {
                     colony.push_back('.');

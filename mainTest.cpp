@@ -10,10 +10,13 @@
 #include "GameOfLife.hpp"
 
 using namespace std;
+GameOfLife g1=GameOfLife(5,5);
+TEST_CASE("Constructor") {
 
-TEST_CASE("Constructore") {
-    GameOfLife g1=GameOfLife(3,3);
-    REQUIRE(1 == 2);
 }
 
 
+TEST_CASE("Grow Cell") {
+g1.growCellAt(3,2);
+cout<<g1.toString();
+}
