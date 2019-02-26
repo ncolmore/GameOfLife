@@ -88,7 +88,7 @@ public:
         int neighborCount=0;
         vector<std::vector<bool>> shiftedSociety;
         std::vector<bool> tempVector;
-        for(int i=0;i<theSociety.size();i++){
+        for(int i=0;i<theSociety.size()+2;i++){
             if(i==0){
                 tempVector=theSociety.at(theSociety.size()-1);
                 firstMember=tempVector.at(0);
@@ -97,7 +97,7 @@ public:
                 tempVector.push_back(firstMember);
                 shiftedSociety.push_back(tempVector);
             }
-            else if(i==theSociety.size()-1){
+            else if(i==theSociety.size()+1){
                 tempVector=theSociety.at(0);
                 firstMember=tempVector.at(0);
                 secondMember=tempVector.at(tempVector.size()-1);
@@ -106,7 +106,7 @@ public:
                 shiftedSociety.push_back(tempVector);
             }
             else{
-                tempVector=theSociety.at(i);
+                tempVector=theSociety.at(i-1);
                 firstMember=tempVector.at(0);
                 secondMember=tempVector.at(tempVector.size()-1);
                 tempVector.insert(tempVector.begin(),secondMember);
